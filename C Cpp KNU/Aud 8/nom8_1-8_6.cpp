@@ -53,15 +53,12 @@ int nom_6(int a[N][N], int n, int m, int k) {
     return s;
 }
 
+
 int main() {
     int n, m;
     n = 3;
     m = 4;
-    int b[N][N] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-    };
+    int b[N][N] = {{1, 2, 3, 4},{5, 6, 7, 8},{9, 10, 11, 12},};
     nom_1(b, n, m);
     cout << nom_6(b, n, m, -1);
     return 0;
