@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "1.h"
-
-int main()
-{
-    nom_2();
+#define N 5
+int main(){
+    nom_1();
 }
