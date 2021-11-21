@@ -17,7 +17,6 @@ int inputRect(Rectangle * r){
     d += scanf("%lf %lf",&r->B.x, &r->B.y);
     return 4 -d;
 }
-
 void printRect(const Rectangle * r){
     printf("(%lf %lf)",r->A.x, r->A.y);
     printf("-(%lf %lf)",r->B.x, r->B.y);
