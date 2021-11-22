@@ -50,7 +50,7 @@ Date yesterday(const Date x){
         res.day=31;
         return res;
     }
-    fprintf(stderr,"Yakas fignya");
+    fprintf(stderr,"lll");
     return res;
 }
 
