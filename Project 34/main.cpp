@@ -1,9 +1,10 @@
 #include <iostream>
 #include <ctime>
+#include 
 using namespace std;
-int game = 1, At;
-const int rows = 5;
-const int col = 5;
+int game = 1, dist;
+int x111,y111;
+const int rows = col = 5;
 int matr[rows][col];
 int matr2[rows][col];
 int matr3[rows][col];
@@ -405,27 +406,40 @@ void AttackOp() {
 void AttackCom() {
     int x = rand() % rows;
     int y = rand() % col;
-    int x1,y1;
     if (matr[x][y] == 1) {
         gameOver2();
     }
     else {
         matr[x][y] = 2;
-        cout << "Continue the game";
     }
     for(int i=0;i<rows;i++){
         for(int j=0;j<col;j++)
-         if (matr2[i][j]==1){
-            x1=i;
-            y1=j;
+         if (matr[i][j]==1){
+            x111=i;
+            y111=j;
          }
     }
-    cout<<'\n'<<"Distance to 1 player- "<<abs(x-x1)+(y-y1);
 }
-void AttackComH() {
-    int x = rand() % rows;
-    int y = rand() % col;
-    int x1,y1;
+void AttackComH(){
+    
+    for(int i=1;i<rows;i++){
+        for(int j;j<col;j++){
+            if(matr4[i][j]==2){
+                while(AttackCom();)
+         }
+    }
+
+            }
+            else{
+                int x = rand() % rows;
+                int y = rand() % col;
+            }
+            
+    dist=abs(x-x1)+(y-y1);
+        }
+    }
+    
+
     if (matr[x][y] == 1) {
         gameOver2();
     }
@@ -433,14 +447,8 @@ void AttackComH() {
         matr[x][y] = 2;
         cout << "Continue the game";
     }
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<col;j++)
-         if (matr2[i][j]==1){
-            x1=i;
-            y1=j;
-         }
-    }
-    cout<<'\n'<<"Distance to 1 player- "<<abs(x-x1)+(y-y1);
+    
+    cout<<'\n'<<"Distance to 1 player- "<<;
 }
 int Game() {
 int ch,ch1;
