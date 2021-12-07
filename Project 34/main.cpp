@@ -8,10 +8,10 @@ int game = 1, dist, dist0;
 int PrevX, PrevY;
 int x111, y111;
 const int rows = 10, col = 10;
-int matr[rows][col];
-int matr2[rows][col];
-int matr3[rows][col];
-int matr4[rows][col];
+int matr[rows][col];/*матрица игрок один*/
+int matr2[rows][col];/*матрица игрок два*/
+int matr3[rows][col];/*матрица игрок один куда стреля*/
+int matr4[rows][col];/*матрица игрок два куда стреля*/
 void gameOver1() {
     cout << "Game over 1 Player won" << endl;
     ::game = 0;
@@ -20,7 +20,7 @@ void gameOver2() {
     cout << "Game over 2 Player won" << endl;
     ::game = 0;
 }
-void clear() {
+void clear() {/*очищение всех матриц*/
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < col; j++) {
             matr[i][j] = 0;
@@ -31,8 +31,18 @@ void clear() {
             matr2[i][j] = 0;
         }
     }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < col; j++) {
+            matr3[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < col; j++) {
+            matr4[i][j] = 0;
+        }
+    }
 }
-void show1() {
+void show1() {/*показать поле 1 игрока*/
     cout << '\n';
     cout << "Player 1" << endl;
     for (int i = 0; i < rows; i++) {
@@ -47,7 +57,7 @@ void show1() {
     }
     cout << '\n';
 }
-void show2() {
+void show2() {/*показать поле попаданий 2 игрока*/
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < col; j++) {
             matr4[i][j] = matr[i][j];
@@ -75,7 +85,7 @@ void show2() {
     }
     cout << '\n';
 }
-void showOp2() {
+void showOp2() {/*показать поле попаданий 1 игрока*/
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < col; j++) {
             matr3[i][j] = matr2[i][j];
@@ -102,7 +112,7 @@ void showOp2() {
         cout << '\n';
     }
 }
-void showOp1() {
+void showOp1() {/*показать поле 2 игрока*/
 
     cout << '\n';
     cout << "Player 2" << endl;
@@ -121,7 +131,7 @@ void showOp1() {
         cout << '\n';
     }
 }
-int move() {
+int move() {/*переместится но соседнюю клетку*/
     cout << '\n' << "U - 1" << '\n';
     cout << "D - 2" << endl;
     cout << "L - 3" << endl;
@@ -234,7 +244,7 @@ int move() {
         }
     }
 }
-int move2() {
+int move2() {/*переместится но соседнюю клетку второму игроку*/
     cout << '\n' << "U - 1" << endl;
     cout << "D - 2" << endl;
     cout << "L - 3" << endl;
@@ -347,24 +357,24 @@ int move2() {
         }
     }
 }
-void set() {
+void set() {/*выбрать место корабля*/
     int x, y;
     cout << "x="; cin >> x;
     cout << "y="; cin >> y;
     matr[x][y] = 1;
 }
-void setop() {
+void setop() {/*выбрать место 2 корабля*/
     int x, y;
     cout << "x="; cin >> x;
     cout << "y="; cin >> y;
     matr2[x][y] = 1;
 }
-void setc() {
+void setc() {/*выбрать место компютер*/
     int x = rand() % rows;
     int y = rand() % col;
     matr2[x][y] = 1;
 }
-void Attack() {
+void Attack() {/*выбрать место атаки*/
     int x, y, x1, y1;
     cout << "X = ";
     cin >> x;
@@ -387,9 +397,9 @@ void Attack() {
                 y1 = j;
             }
     }
-    cout << '\n' << "Distance to 2 player - " << abs(x - x1) + abs(y - y1) << endl;
+    cout << '\n' << "Distance to 2 player - " << abs(x - x1) + abs(y - y1) << endl;/*Манхетонська дистанція*/
 }
-void AttackOp() {
+void AttackOp() {/*выбрать место атаки 2 игрок*/
     int x, y, x1, y1;
     cin >> x;
     cin >> y;
@@ -411,7 +421,7 @@ void AttackOp() {
     cout << '\n' << "Distance to 1 player - " << abs(x - x1) + abs(y - y1) << endl;
 }
 
-void AttackCom() {
+void AttackCom() {/*выбрать место атаки на угад*/
     int x = rand() % rows;
     int y = rand() % col;
     if (matr[x][y] == 1) {
@@ -429,7 +439,7 @@ void AttackCom() {
     }
 }
 
-int AttackComH() {
+int AttackComH() {/*выбрать место атаки в радиусе прошлой дистанции*/
 
     int x, y;
     int dist2;
@@ -552,7 +562,7 @@ else {
 cout << '\n' << "Distance to 1 player- " << ;
 }
 */
-int Game() {
+int Game() {/*Игра*/
     int ch, ch1,ch2;
     cout << "with whome do u wanna play?" <<endl;
     cout << "Computer - 1" << endl;
